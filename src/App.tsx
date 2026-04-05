@@ -147,6 +147,7 @@ export const App: React.FC = () => {
     const targetStatus = !isAllCompleted;
 
     const todosToUpdate = toDos.filter(todo => todo.completed !== targetStatus);
+
     todosToUpdate.forEach(todo => {
       handleUpdateTodo({ ...todo, completed: targetStatus });
     });

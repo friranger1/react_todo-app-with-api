@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { useEffect, useRef, useState } from 'react';
 import { Todo } from '../../types/Todo';
 import cn from 'classnames';
@@ -15,7 +16,6 @@ type Props = {
 
 export const TodoItem: React.FC<Props> = ({
   toDo,
-  isLoading,
   handlerDeleteTodo,
   deleting,
   handleUpdateTodo,
@@ -40,11 +40,13 @@ export const TodoItem: React.FC<Props> = ({
 
     if (trimmedTitle === toDo.title) {
       setEditingId(0);
+
       return;
     }
 
     if (!trimmedTitle) {
       handlerDeleteTodo(toDo.id);
+
       return;
     }
 
@@ -57,6 +59,7 @@ export const TodoItem: React.FC<Props> = ({
       setNewTitle(toDo.title);
     }
   };
+
   return (
     <div data-cy="Todo" className={cn('todo', { completed: toDo.completed })}>
       <label className="todo__status-label">
